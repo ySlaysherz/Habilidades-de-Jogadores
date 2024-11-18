@@ -1,0 +1,6 @@
+name: Habilidades-de-Jogadores
+description: "Plugin com Habilidades para os jogadores que realizarem certas ações como minerar, pescar ou matar monstros."
+version: 1.0
+author: ySlaysherz_
+main: Principal.Main
+api-version: 1.16

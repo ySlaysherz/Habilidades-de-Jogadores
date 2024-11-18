@@ -1,0 +1,8 @@
+Mensagens:
+  Level_Up: "&6&l| &aParabens! &fSeu nivel de &e%habilidade% &faumentou e agora você está no nível &e%nivel%&f."
+  Level_Down: "&6&l| &cSeu nível de &e%habilidade% &cdiminuiu em &e%niveis_diminuidos% e agora regrediu para o nível &e%nivel%&c."
+  Level_Give: "&6&l| &aSucesso! &fFoi dado &e%niveis% &fniveis para &e%jogador% &fem &e%habilidade%&f."
+  Level_Set: "&6&l| &aTudo Certo! &fFoi definido &e%nivel% &fniveis em &e%habilidade% &fna conta de &e%jogador%&f."
+  Experiencia_Add: "&6&l| &aSucesso! &fFoi adicionado &e%experiencia% &fde experiêcia em &e%habilidade% &fna conta de &e%jogador%&f."
+  Experiencia_Set: "&6&l| &aTudo Certo! &fFoi definido &e%experiencia% &fexperiencia em &e%habilidade% &fna conta de &e%jogador%&f."
+  Experiencia_Down: "&6&l| &cSua experiência em &e%habilidade% &cfoi diminuida em %experiencia%."

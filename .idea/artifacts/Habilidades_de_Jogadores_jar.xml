@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Habilidades-de-Jogadores:jar">
+    <output-path>$USER_HOME$/Downloads</output-path>
+    <root id="archive" name="Habilidades-de-Jogadores.jar">
+      <element id="module-output" name="Habilidades-de-Jogadores" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../APIs/spigot-1.16.5.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
