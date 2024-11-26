@@ -10,7 +10,7 @@ public class Habilidades {
         MINERADOR("Minerador"),
         PESCADOR("Pescador"),
         COLETOR("Coletor"),
-        CAÇADOR("Caçador"),
+        CACADOR("Caçador"),
         LENHADOR("Lenhador"),
         CORREDOR("Corredor"),
         PLANADOR("Planador"),

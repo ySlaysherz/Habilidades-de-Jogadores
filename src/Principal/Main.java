@@ -1,10 +1,8 @@
 package Principal;
 
-import Habilidades.Blocos.Configuracao;
-import Habilidades.Eventos.aoJogadorColetarItem;
-import Habilidades.Eventos.aoJogadorCorrer;
-import Habilidades.Eventos.aoJogadorMatarMonstros;
-import Habilidades.Eventos.aoQuebrarBloco;
+import Habilidades.Eventos.*;
+import Habilidades.Eventos.Customizados.PlayerKillAnimalEvent;
+import Habilidades.Gerenciamento.Config.Configuracao;
 import Habilidades.Gerenciamento.Config.Database;
 import Habilidades.Gerenciamento.Mensagens;
 import Jogadores.aoJogadorEntrar;
@@ -44,6 +42,7 @@ public class Main extends JavaPlugin {
         Bukkit.getServer().getPluginManager().registerEvents(new aoJogadorColetarItem(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new aoJogadorCorrer(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new aoJogadorMatarMonstros(), this);
+        Bukkit.getServer().getPluginManager().registerEvents(new aoJogadorMatarAnimais(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new aoJogadorEntrar(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new aoJogadorSair(), this);
 

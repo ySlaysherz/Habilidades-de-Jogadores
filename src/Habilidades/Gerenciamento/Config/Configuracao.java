@@ -1,9 +1,10 @@
-package Habilidades.Blocos;
+package Habilidades.Gerenciamento.Config;
 
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.EntityType;
 import org.bukkit.plugin.Plugin;
 
 import java.io.File;
@@ -85,4 +86,65 @@ public class Configuracao {
     public static int getExperienciaBloco(Material tipo) {
         return getBlocosSecao().getInt(tipo.toString());
     }
+
+    public static ConfigurationSection getMonstrosSecao() {
+        ConfigurationSection Secao = getConfig().getConfigurationSection("Monstros");
+        if (Secao == null) {
+            Secao = getConfig().createSection("Monstros");
+        }
+        return Secao;
+    }
+
+    public static List<EntityType> getMonstrosTipos() {
+        List<EntityType> tipos = new ArrayList<>();
+        for (String tipo : getMonstrosSecao().getKeys(false)) {
+            tipos.add(EntityType.valueOf(tipo));
+        }
+        return tipos;
+    }
+
+    public static int getExperienciaMonstro(EntityType tipo) {
+        return getMonstrosSecao().getInt(tipo.toString());
+    }
+
+    public static ConfigurationSection getAnimaisSecao() {
+        ConfigurationSection Secao = getConfig().getConfigurationSection("Animais");
+        if (Secao == null) {
+            Secao = getConfig().createSection("Animais");
+        }
+        return Secao;
+    }
+
+    public static List<EntityType> getAnimaisTipos() {
+        List<EntityType> tipos = new ArrayList<>();
+        for (String tipo : getAnimaisSecao().getKeys(false)) {
+            tipos.add(EntityType.valueOf(tipo));
+        }
+        return tipos;
+    }
+
+    public static int getExperienciaAnimal(EntityType tipo) {
+        return getAnimaisSecao().getInt(tipo.toString());
+    }
+
+    public static ConfigurationSection getColetaveisSecao() {
+        ConfigurationSection Secao = getConfig().getConfigurationSection("Coletaveis");
+        if (Secao == null) {
+            Secao = getConfig().createSection("Coletaveis");
+        }
+        return Secao;
+    }
+
+    public static List<Material> getItensColetaveis() {
+        List<Material> tipos = new ArrayList<>();
+        for (String tipo : getColetaveisSecao().getKeys(false)) {
+            tipos.add(Material.matchMaterial(tipo));
+        }
+        return tipos;
+    }
+
+    public static int getExperienciaColetaveis(Material tipo) {
+        return getColetaveisSecao().getInt(tipo.toString());
+    }
+
 }

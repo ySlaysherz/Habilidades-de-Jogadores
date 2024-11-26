@@ -3,11 +3,14 @@ package Habilidades.Gerenciamento.Config;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Database {
     private static File arquivo;
@@ -104,6 +107,12 @@ public class Database {
         return Secao;
     }
 
+    public static void addNivel(String habilidade, String jogador, int nivel) {
+        getHabilidadeSecao(habilidade, jogador).set("Nivel", nivel + getNivel(habilidade, jogador));
+        saveConfig();
+        reloadConfig();
+    }
+
     public static void setNivel(String habilidade, String jogador, int nivel) {
         getHabilidadeSecao(habilidade, jogador).set("Nivel", nivel);
         saveConfig();
@@ -112,6 +121,12 @@ public class Database {
 
     public static int getNivel(String habilidade, String jogador) {
         return getHabilidadeSecao(habilidade, jogador).getInt("Nivel");
+    }
+
+    public static void addExperiencia(String habilidade, String jogador, int experiencia) {
+        getHabilidadeSecao(habilidade, jogador).set("Experiencia", experiencia + getExperiencia(habilidade, jogador));
+        saveConfig();
+        reloadConfig();
     }
 
     public static void setExperiencia(String habilidade, String jogador, int experiencia) {
