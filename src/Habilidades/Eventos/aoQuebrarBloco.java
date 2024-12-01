@@ -25,14 +25,7 @@ public class aoQuebrarBloco implements Listener {
 
         if (!getBlocosTipos().contains(tipo)) return;
         if (evento.isCancelled()) return;
-
-        jogador.playSound(jogador.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 0.5f, 0.5f);
-        addExperiencia(getHabilidadeNome(Habilidade.MINERADOR), jogador.getName(), getExperienciaBloco(tipo));
-        if (verificarExperiencia(jogador, getHabilidadeNome(Habilidade.MINERADOR))) {
-            jogador.playSound(jogador.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 0.5f, 0.5f);
-            addNivel(getHabilidadeNome(Habilidade.MINERADOR), jogador.getName(), 1);
-            jogador.sendMessage(LevelUp(jogador, getHabilidadeNome(Habilidade.MINERADOR), getNivel(getHabilidadeNome(Habilidade.MINERADOR), jogador.getName())));
-        }
+        addExperiencia(getHabilidadeNome(Habilidade.MINERADOR), jogador, getExperienciaBloco(tipo));
     }
 }
 

@@ -1,5 +1,7 @@
 package Habilidades.Gerenciamento.Config;
 
+import Habilidades.Gerenciamento.Habilidades;
+import org.bukkit.Sound;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -11,6 +13,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static Habilidades.Gerenciamento.Habilidades.getHabilidadeNome;
+import static Habilidades.Gerenciamento.Habilidades.verificarExperiencia;
+import static Habilidades.Gerenciamento.Mensagens.LevelUp;
 
 public class Database {
     private static File arquivo;
@@ -123,8 +129,12 @@ public class Database {
         return getHabilidadeSecao(habilidade, jogador).getInt("Nivel");
     }
 
-    public static void addExperiencia(String habilidade, String jogador, int experiencia) {
-        getHabilidadeSecao(habilidade, jogador).set("Experiencia", experiencia + getExperiencia(habilidade, jogador));
+    public static void addExperiencia(String habilidade, Player jogador, int experiencia) {
+        getHabilidadeSecao(habilidade, jogador.getName()).set("Experiencia", experiencia + getExperiencia(habilidade, jogador.getName()));
+        if (verificarExperiencia(jogador, getHabilidadeNome(Habilidades.Habilidade.MINERADOR))) {
+            addNivel(getHabilidadeNome(Habilidades.Habilidade.MINERADOR), jogador.getName(), 1);
+            jogador.sendMessage(LevelUp(jogador, getHabilidadeNome(Habilidades.Habilidade.MINERADOR), getNivel(getHabilidadeNome(Habilidades.Habilidade.MINERADOR), jogador.getName())));
+        }
         saveConfig();
         reloadConfig();
     }

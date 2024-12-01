@@ -26,15 +26,7 @@ public class aoJogadorColetarItem implements Listener {
         ItemStack coletado = item.getItemStack();
         for (Material coletaveis : getItensColetaveis())
             if (coletado.getType() == coletaveis) {
-                addExperiencia(getHabilidadeNome(Habilidades.Habilidade.COLETOR), jogador.getName(), getExperienciaColetaveis(coletado.getType()));
-                jogador.playSound(jogador.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 0.5f, 0.5f);
-
-                if (!verificarExperiencia(jogador, getHabilidadeNome(Habilidade.MINERADOR))) {
-                    return;
-                }
-                jogador.playSound(jogador.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 0.5f, 0.5f);
-                addNivel(getHabilidadeNome(Habilidade.COLETOR), jogador.getName(), 1);
-                jogador.sendMessage(LevelUp(jogador, getHabilidadeNome(Habilidade.MINERADOR), getNivel(getHabilidadeNome(Habilidade.MINERADOR), jogador.getName())));
+                addExperiencia(getHabilidadeNome(Habilidades.Habilidade.COLETOR), jogador, getExperienciaColetaveis(coletado.getType()));
             }
     }
 }

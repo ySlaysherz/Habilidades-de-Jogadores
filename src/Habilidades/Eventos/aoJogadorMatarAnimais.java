@@ -42,14 +42,7 @@ public final class aoJogadorMatarAnimais implements Listener {
         Entity animal = evento.getAnimal();
         EntityType tipo = animal.getType();
         if (getAnimaisSecao().contains(animal.getType().toString())) {
-            jogador.playSound(jogador.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 0.5f, 0.5f);
-            addExperiencia(getHabilidadeNome(Habilidade.CACADOR), jogador.getName(), getExperienciaAnimal(tipo));
-            if (!verificarExperiencia(jogador, getHabilidadeNome(Habilidade.CACADOR))) {
-                return;
-            }
-            jogador.playSound(jogador.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 0.5f, 0.5f);
-            addNivel(getHabilidadeNome(Habilidade.CACADOR), jogador.getName(), 1);
-            jogador.sendMessage(LevelUp(jogador, getHabilidadeNome(Habilidade.CACADOR), getNivel(getHabilidadeNome(Habilidade.CACADOR), jogador.getName())));
+            addExperiencia(getHabilidadeNome(Habilidade.CACADOR), jogador, getExperienciaAnimal(tipo));
         }
     }
 }

@@ -19,20 +19,10 @@ public class aoJogadorMatarMonstros implements Listener {
     @EventHandler
     public void aoMatar(EntityDeathEvent evento) {
         LivingEntity monstro = evento.getEntity();
-        if (monstro.getKiller() != null) {
-            Player jogador = monstro.getKiller();
-
-            if (getMonstrosSecao().contains(monstro.getType().toString())) {
-                jogador.playSound(jogador.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 0.5f, 0.5f);
-                addExperiencia(getHabilidadeNome(Habilidade.CACADOR), jogador.getName(), 1);
-                if (!verificarExperiencia(jogador, getHabilidadeNome(Habilidade.CACADOR))) {
-                    return;
-                }
-                jogador.playSound(jogador.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 0.5f, 0.5f);
-                addNivel(getHabilidadeNome(Habilidade.CACADOR), jogador.getName(), 1);
-                jogador.sendMessage(LevelUp(jogador, getHabilidadeNome(Habilidade.CACADOR), getNivel(getHabilidadeNome(Habilidade.CACADOR), jogador.getName())));
-            }
+        if (monstro.getKiller() == null) return;
+        Player jogador = monstro.getKiller();
+        if (getMonstrosSecao().contains(monstro.getType().toString())) {
+            addExperiencia(getHabilidadeNome(Habilidade.CACADOR), jogador, 1);
         }
     }
-
 }
